@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">哈哈哈哈啊</div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        /* 这里采用template，但是这并不是最好的表现形式但是对初学者更加理解，后面会对template进行讲解， */
+
+        /* */
+        Vue.createApp({
+            template: `
+        <div>
+          <h2>{{message}}</h2>
+          <h2>{{counter}}</h2>
+          <button @click='increment'>+1</button>
+          <button @click='decrement'>-1</button>
+        </div>
+      `,
+            /* 顾名思义，数据储存，必须定义为一个函数 */
+            data: function() {
+                return {
+                    message: "Hello World",
+                    counter: 100
+                }
+            },
+            // 定义各种各样的方法
+            methods: {
+                increment() {
+                    console.log("点击了+1");
+                    this.counter++;
+                },
+                decrement() {
+                    console.log("点击了-1");
+                    this.counter--;
+                }
+            }
+        }).mount('#app');
+        /* 挂载在app这个dom类中 */
+    </script>
+</body>
+
+</html>
