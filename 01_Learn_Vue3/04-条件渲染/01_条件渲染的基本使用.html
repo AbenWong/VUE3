@@ -11,15 +11,21 @@
 <body>
     <div id="app"></div>
     <template id="my-app">
-
+      <div v-if="isShow">hahaha</div>
+      <button @click="toggle">change</button>
     </template>
     <script src="../js/vue.js"></script>
     <script>
         const App = {
-            template: 'my-app',
+            template: '#my-app',
             data() {
                 return {
-
+                    isShow: true
+                }
+            },
+            methods: {
+                toggle() {
+                    this.isShow = !this.isShow;
                 }
             },
         }
