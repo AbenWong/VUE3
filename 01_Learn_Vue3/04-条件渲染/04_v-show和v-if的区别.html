@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- . v-show 只是简单的控制元素的 display 属性，而 v-if 才是条件渲染（条件为真，元素将会被渲染，条件为假，元素会被销毁）；
+
+    2.  v-show 有更高的首次渲染开销，而 v-if 的首次渲染开销要小的多；
+
+    3. v-if 有更高的切换开销，v-show 切换开销小；
+
+    4. v-if 有配套的 v-else-if 和 v-else，而 v-show 没有
+
+    5. v-if 可以搭配 template 使用，而 v-show 不行
+-->
+
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2 v-if="isShow">哈哈哈哈</h2>
+      <h2 v-show="isShow">呵呵呵呵</h2>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    isShow: true
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>
