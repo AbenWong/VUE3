@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    info: {
+                        name: "why",
+                        age: 18,
+                        nba: {
+                            name: 'kobe'
+                        }
+                    }
+
+                }
+            },
+            watch: {
+                info(newInfo, oldInfo) {
+                    console.log("newValue:", newInfo, "oldValue:", oldInfo);
+                },
+                info: {
+                    handler: function(newIndo, oldInfo) {
+                        console.log("newValue", newInfo.nba.name, "oldValue:", oldinfo.nba.name);
+                    },
+                    deep: true, //深度监听
+                    //  immediate:true //立即监听
+                }
+            },
+            methods: {
+                changeInfo() {
+                    this.info = {
+                        name: "kobe"
+                    };
+                },
+                changeInfoName() {
+                    this,
+                    info.name = "kobe";
+                },
+                changeInfoNbaName() {
+                    this.info.nba.name = "james";
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>
